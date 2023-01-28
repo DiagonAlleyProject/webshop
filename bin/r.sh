@@ -1,0 +1,1 @@
+java -jar /Users/macbookAir/Project/webshop/target/webshop-0.0.1-SNAPSHOT.jar

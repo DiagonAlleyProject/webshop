@@ -1,0 +1,15 @@
+com/shop/webshop/utils/NullUtils.class
+com/shop/webshop/model/outter/ProductVo.class
+com/shop/webshop/Repository/ClientRepository.class
+com/shop/webshop/model/outter/ClientVo.class
+com/shop/webshop/service/ProductServiceImpl.class
+com/shop/webshop/service/ProductService.class
+com/shop/webshop/service/ClientServiceImpl.class
+com/shop/webshop/controller/ProductController.class
+com/shop/webshop/model/inner/ProductDo.class
+com/shop/webshop/WebshopApplication.class
+com/shop/webshop/Repository/ProductRepository.class
+com/shop/webshop/utils/BeanUtils.class
+com/shop/webshop/service/ClientService.class
+com/shop/webshop/model/inner/ClientDo.class
+com/shop/webshop/controller/ClientController.class

@@ -1,0 +1,15 @@
+/Users/macbookAir/Project/webshop/src/main/java/com/shop/webshop/model/outter/ProductVo.java
+/Users/macbookAir/Project/webshop/src/main/java/com/shop/webshop/utils/BeanUtils.java
+/Users/macbookAir/Project/webshop/src/main/java/com/shop/webshop/service/ClientServiceImpl.java
+/Users/macbookAir/Project/webshop/src/main/java/com/shop/webshop/controller/ClientController.java
+/Users/macbookAir/Project/webshop/src/main/java/com/shop/webshop/service/ProductService.java
+/Users/macbookAir/Project/webshop/src/main/java/com/shop/webshop/model/inner/ClientDo.java
+/Users/macbookAir/Project/webshop/src/main/java/com/shop/webshop/Repository/ClientRepository.java
+/Users/macbookAir/Project/webshop/src/main/java/com/shop/webshop/service/ClientService.java
+/Users/macbookAir/Project/webshop/src/main/java/com/shop/webshop/WebshopApplication.java
+/Users/macbookAir/Project/webshop/src/main/java/com/shop/webshop/utils/NullUtils.java
+/Users/macbookAir/Project/webshop/src/main/java/com/shop/webshop/Repository/ProductRepository.java
+/Users/macbookAir/Project/webshop/src/main/java/com/shop/webshop/service/ProductServiceImpl.java
+/Users/macbookAir/Project/webshop/src/main/java/com/shop/webshop/controller/ProductController.java
+/Users/macbookAir/Project/webshop/src/main/java/com/shop/webshop/model/inner/ProductDo.java
+/Users/macbookAir/Project/webshop/src/main/java/com/shop/webshop/model/outter/ClientVo.java
