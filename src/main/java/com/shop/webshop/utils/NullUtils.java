@@ -6,24 +6,20 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 简单的判断工具
- *
- * @author zhengwei20
+ * @AUTHOR: OSWALDO HERNANDEZ
  */
 public class NullUtils {
 
     /**
-     * 判断传入对象是否为空或值为空
      *
-     * @param obj 需要判断是否为空的对象
-     * @return true-如果对象为空，false-如果对象非空
+     * @param obj
+     * @return true
      */
     public static boolean isEmpty(Object obj) {
-        // 判断是否为空
+
         if (obj == null) {
             return true;
         }
-        // ----------------根据各种对象类型判断是否值为空--------------
         if (obj instanceof String) {
             return "".equals(((String) obj).trim());
         }
@@ -43,7 +39,6 @@ public class NullUtils {
     }
 
     /**
-     * 是Null或 ""
      *
      * @param source
      * @return
@@ -53,7 +48,6 @@ public class NullUtils {
     }
 
     /**
-     * 不为Null和 ""
      *
      * @param source
      * @return
@@ -63,7 +57,7 @@ public class NullUtils {
     }
 
     /**
-     * Null或 长度=0
+     * Null
      *
      * @param source
      * @return
@@ -73,7 +67,6 @@ public class NullUtils {
     }
 
     /**
-     * 非Null 并且 长度>0 返回true
      *
      * @param source
      * @return
@@ -83,7 +76,6 @@ public class NullUtils {
     }
 
     /**
-     * Null 或 长度=0 返回true
      *
      * @param source
      * @return
@@ -93,7 +85,6 @@ public class NullUtils {
     }
 
     /**
-     * 非Null 并且 长度>0 返回true
      *
      * @param source
      * @return
@@ -103,7 +94,7 @@ public class NullUtils {
     }
 
     /**
-     * 非Null
+     * Null
      *
      * @param source
      * @return
@@ -113,7 +104,7 @@ public class NullUtils {
     }
 
     /**
-     * 是Null
+     * Null
      *
      * @param source
      * @return
