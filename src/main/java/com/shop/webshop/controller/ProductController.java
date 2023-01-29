@@ -32,7 +32,7 @@ public class ProductController {
     @PostMapping(value = "/addProduct")
     public ResponseEntity<?> addProduct(@RequestBody MultipartFile file , ProductVo productVo) throws Exception {
         Map<String,Object> response = new HashMap<>();
-        if (file.isEmpty()){
+        if (NullUtils.isEmpty(file)){
             response.put("Message","Image is empty");
             return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
         }
