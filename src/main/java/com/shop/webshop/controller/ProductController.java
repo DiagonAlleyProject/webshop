@@ -24,7 +24,7 @@ public class ProductController {
     public ResponseEntity<?> getProductList (){
         Map<String,Object> response = new HashMap<>();
         List<ProductVo> productVoList = productService.getProductList();
-        response.put("message","Operation successfully");
+        response.put("message","Operation completed successfully");
         response.put("response",productVoList);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
@@ -32,8 +32,8 @@ public class ProductController {
     @PostMapping(value = "/addProduct")
     public ResponseEntity<?> addProduct(@RequestBody MultipartFile file , ProductVo productVo) throws Exception {
         Map<String,Object> response = new HashMap<>();
-        if (NullUtils.isEmpty(file)){
-            response.put("Message","La imagen esta vacia");
+        if (file.isEmpty()){
+            response.put("Message","Image is empty");
             return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
         }
         return productService.addProduct(productVo, file);
