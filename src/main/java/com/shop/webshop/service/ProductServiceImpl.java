@@ -41,12 +41,12 @@ public class ProductServiceImpl implements ProductService{
             Files.write(finalPath,bitesImg);
             productVo.setPicture(file.getOriginalFilename());
         }catch (Exception e){
-            response.put("message","No hemos podido guardar tu imagen");
+            response.put("message","Could not save the image");
             return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
         }
         BeanUtils.copyProperties(productVo,productDo);
         productRepository.save(productDo);
-        response.put("message","Producto creado exitosamente");
+        response.put("message","Product created successfully");
         response.put("response",productVo);
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
