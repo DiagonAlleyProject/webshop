@@ -2,6 +2,8 @@ package com.shop.webshop.model.outter;
 
 import lombok.Data;
 
+import java.io.InputStream;
+
 @Data
 public class ProductVo {
     private Integer idProduct;
