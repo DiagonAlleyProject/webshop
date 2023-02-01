@@ -9,6 +9,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -30,7 +31,7 @@ public class ClientServiceImpl implements ClientService{
     public ResponseEntity<?> addClient(ClientDo clientDo) {
         Map<String,Object> response = new HashMap<>();
         ClientVo clientVo = new ClientVo();
-        clientDo.setPassword(SensitiveUtils.encrypt(clientDo.getPassword()));
+        clientDo.setPassword(new BCryptPasswordEncoder().encode(clientDo.getPassword()));
         clientRepository.save(clientDo);
         BeanUtils.copyProperties(clientDo,clientVo);
         response.put("message","Client created successfully");
