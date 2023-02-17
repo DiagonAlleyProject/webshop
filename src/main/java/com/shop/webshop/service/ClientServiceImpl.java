@@ -1,14 +1,14 @@
 package com.shop.webshop.service;
 
-import ch.qos.logback.core.net.server.ClientVisitor;
 import com.shop.webshop.Repository.ClientRepository;
+import com.shop.webshop.model.inner.ChangePassword;
 import com.shop.webshop.model.inner.ClientDo;
 import com.shop.webshop.model.outter.ClientVo;
-import com.shop.webshop.utils.SensitiveUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -38,5 +38,16 @@ public class ClientServiceImpl implements ClientService{
         response.put("response",clientVo);
         return new ResponseEntity<>(response,HttpStatus.CREATED);
     }
-
+    @Override
+    public ResponseEntity<?> changePassword(ChangePassword changePassword){
+        Map<String,Object> response = new HashMap<>();
+        ClientDo clientDo;
+        clientDo = clientRepository.findById(changePassword.getIdClient())
+                .orElseThrow(()-> new UsernameNotFoundException("User not found"));
+        clientDo.setPassword(new BCryptPasswordEncoder().encode(changePassword.getPassword()));
+        clientRepository.save(clientDo);
+        response.put("message","New password changed succesfully");
+        response.put("response", clientDo.getName() + " " + clientDo.getLastName());
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
 }

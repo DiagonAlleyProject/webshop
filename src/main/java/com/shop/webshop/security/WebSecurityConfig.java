@@ -27,7 +27,7 @@ public class WebSecurityConfig {
     SecurityFilterChain securityFilterChain(HttpSecurity http, AuthenticationManager authenticationManager) throws Exception {
        JWTAuthenticationFilter jwtAuthenticationFilter = new JWTAuthenticationFilter();
        jwtAuthenticationFilter.setAuthenticationManager(authenticationManager);
-       jwtAuthenticationFilter.setFilterProcessesUrl("/login");
+       jwtAuthenticationFilter.setFilterProcessesUrl("/client/login");
 
 
         return http
@@ -70,4 +70,5 @@ public class WebSecurityConfig {
         return new BCryptPasswordEncoder();
     }
 }
+
 

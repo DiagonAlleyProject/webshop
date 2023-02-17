@@ -11,7 +11,7 @@ public class ClientDo {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="id_cliente")
-    private int idClient;
+    private Long idClient;
     @Column(name="id_card_number")
     private String idCardNumber;
     private String name;

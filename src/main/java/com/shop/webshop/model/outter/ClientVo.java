@@ -5,7 +5,7 @@ import lombok.Data;
 public class ClientVo {
 
 
-    private int idClient;
+    private Long idClient;
     private String idCardNumber;
     private String name;
     private String lastName;
