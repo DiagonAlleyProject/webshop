@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 @Service
 public class ClientServiceImpl implements ClientService{
@@ -32,11 +33,21 @@ public class ClientServiceImpl implements ClientService{
         Map<String,Object> response = new HashMap<>();
         ClientVo clientVo = new ClientVo();
         clientDo.setPassword(new BCryptPasswordEncoder().encode(clientDo.getPassword()));
-        clientRepository.save(clientDo);
-        BeanUtils.copyProperties(clientDo,clientVo);
-        response.put("message","Client created successfully");
-        response.put("response",clientVo);
-        return new ResponseEntity<>(response,HttpStatus.CREATED);
+        Optional<ClientDo> clientDoOptional = clientRepository.findOneByEmail(clientDo.getEmail());
+        ResponseEntity<?> responseEntity;
+        if (clientDoOptional.isEmpty()) {
+            clientRepository.save(clientDo);
+            BeanUtils.copyProperties(clientDo, clientVo);
+            response.put("message", "Client created successfully");
+            response.put("response", clientVo);
+            responseEntity = new ResponseEntity<>(response,HttpStatus.CREATED);
+        } else {
+            BeanUtils.copyProperties(clientDoOptional.get(), clientVo);
+            response.put("message", "Client already exists");
+            response.put("response", clientVo);
+            responseEntity = new ResponseEntity<>(response,HttpStatus.OK);
+        }
+        return responseEntity;
     }
     @Override
     public ResponseEntity<?> changePassword(ChangePassword changePassword){
