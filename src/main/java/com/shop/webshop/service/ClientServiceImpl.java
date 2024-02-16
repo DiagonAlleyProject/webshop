@@ -32,10 +32,11 @@ public class ClientServiceImpl implements ClientService{
     public ResponseEntity<?> addClient(ClientDo clientDo) {
         Map<String,Object> response = new HashMap<>();
         ClientVo clientVo = new ClientVo();
-        clientDo.setPassword(new BCryptPasswordEncoder().encode(clientDo.getPassword()));
         Optional<ClientDo> clientDoOptional = clientRepository.findOneByEmail(clientDo.getEmail());
         ResponseEntity<?> responseEntity;
+
         if (clientDoOptional.isEmpty()) {
+            clientDo.setPassword(new BCryptPasswordEncoder().encode(clientDo.getPassword()));
             clientRepository.save(clientDo);
             BeanUtils.copyProperties(clientDo, clientVo);
             response.put("message", "Client created successfully");
