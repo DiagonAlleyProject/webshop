@@ -39,7 +39,6 @@ public class WebSecurityConfig {
                 .csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/client/add").permitAll()
-                .antMatchers("/client/login").permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()
